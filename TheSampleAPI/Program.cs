@@ -10,7 +10,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapScalarApiReference();    
+    app.MapScalarApiReference(options=>
+         {
+             options.Title = "The Smaple API"; // Set the title for the API reference page
+             options.Theme = ScalarTheme.Saturn;
+         }
+        );    
 }
 
 app.UseHttpsRedirection();
